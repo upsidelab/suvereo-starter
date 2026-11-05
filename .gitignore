@@ -1,0 +1,8 @@
+server/config/.env
+frontend/config/.env
+__pycache__/
+*.py[cod]
+dist/
+.venv/
+.ruff_cache/
+.idea

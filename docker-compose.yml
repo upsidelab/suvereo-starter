@@ -1,0 +1,77 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    environment:
+      - POSTGRES_USER=suvereo
+      - POSTGRES_PASSWORD=suvereo
+      - POSTGRES_DB=suvereo
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  redis:
+    image: redis:latest
+  frontend:
+    image: suvereo-frontend:${SUVEREO_VERSION:-latest}
+    env_file:
+      - ./frontend/config/.env
+    environment:
+      - PORT=10001
+    ports:
+      - "10001:10001"
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      args:
+        SUVEREO_VERSION: ${SUVEREO_VERSION:-latest}
+    ports:
+      - "10000:10000"
+    volumes:
+      - media:/app/media
+    env_file:
+      - ./server/config/.env
+    environment:
+      - PORT=10000
+      - RUN_MIGRATIONS=True
+    depends_on:
+      postgres:
+        condition: service_healthy
+  worker:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      args:
+        SUVEREO_VERSION: ${SUVEREO_VERSION:-latest}
+    user: celery
+    volumes:
+      - media:/app/media
+    env_file:
+      - ./server/config/.env
+    environment:
+      - RUN_MIGRATIONS=False
+      - RUN_WORKER=True
+    depends_on:
+      postgres:
+        condition: service_healthy
+  beat:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      args:
+        SUVEREO_VERSION: ${SUVEREO_VERSION:-latest}
+    env_file:
+      - ./server/config/.env
+    environment:
+      - RUN_MIGRATIONS=False
+      - RUN_BEAT=True
+    depends_on:
+      - redis
+      - postgres
+
+volumes:
+  postgres_data:
+  media:
