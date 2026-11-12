@@ -1,6 +1,30 @@
-# suvereo-starter
+<h1 align="center">
+  <a href="https://upsidelab.io/suvereo">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/upsidelab/suvereo/main/.github/assets/suvereo-logo-color-on-dark.svg">
+      <img src="https://raw.githubusercontent.com/upsidelab/suvereo/main/.github/assets/suvereo-logo-color.svg" height="60" alt="Suvereo">
+    </picture>
+  </a>
+</h1>
 
-Starter pack for building on Suvereo. It runs the Suvereo server and frontend with Docker Compose and gives you a place for your own code: domains, agents, integrations and anything else you want to wire into Suvereo.
+<p align="center">Production Ready Agentic AI Framework.</p>
+<div align="center">
+  <strong>
+    <a href="https://upsidelab.io/suvereo/docs/getting-started/installation">Get Started</a> |
+    <a href="https://upsidelab.io/suvereo/docs">View Docs</a> |
+    <a href="https://upsidelab.io/suvereo">Website</a>
+  </strong>
+</div>
+
+## Introduction
+
+[Suvereo](https://github.com/upsidelab/suvereo) is an open-source framework for putting AI agents to work on your own systems. It gives agents access to your data, lets them act in your connected services, and gives your team a place to manage them, without building that infrastructure from scratch.
+
+The core is domain-agnostic: it works for any field, from e-commerce to healthcare. You describe your domain in a [domain definition](https://upsidelab.io/suvereo/docs/customization/domain-onboarding), a package that adds its entities, its integration types and the way agents reach them. Suvereo provides everything else. See the [documentation](https://upsidelab.io/suvereo/docs) to learn more.
+
+## Starter Pack
+
+This repository is the starter pack for building on Suvereo. It runs the Suvereo server and frontend with Docker Compose and gives you a place for your own code: domains, agents, integrations and anything else you want to wire into Suvereo. See [Using the Suvereo starter](https://upsidelab.io/suvereo/docs/customization/using-the-suvereo-starter) for a walkthrough.
 
 ## What is included
 
