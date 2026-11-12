@@ -32,11 +32,11 @@ The starter ships with the **diet advice domain** (`server/src/diet_advice_domai
 
 ### Your code lives in `server/src/`
 
-`server/src/` is part of this codebase, so it is yours to change. Define your own domains (entities and migrations), agents, agentic executions and integrations there, then wire them into Suvereo in `server/config/settings_override.py` (`INSTALLED_VERTICALS`, `AVAILABLE_AGENTS`, `AVAILABLE_AGENTIC_EXECUTION_DEFINITIONS`, `CATALOG_INTEGRATION_PLUGINS` and so on).
+`server/src/` is part of this codebase, so it is yours to change. Define your own domain definitions (entities and migrations), agents, agentic executions and integrations there, then wire them into Suvereo in `server/config/settings_override.py` (`INSTALLED_DOMAIN_DEFINITIONS`, `AVAILABLE_AGENTS`, `AVAILABLE_AGENTIC_EXECUTION_DEFINITIONS`, `CATALOG_INTEGRATION_PLUGINS` and so on).
 
 ### Packages from PyPI
 
-`server/src/pyproject.toml` describes your code as a Python package. Add packages from PyPI to its dependencies, such as verticals, agents and integrations published by others, and they are installed into the image together with your code. Then register them in `settings_override.py` the same way as your own.
+`server/src/pyproject.toml` describes your code as a Python package. Add packages from PyPI to its dependencies, such as domain definitions, agents and integrations published by others, and they are installed into the image together with your code. Then register them in `settings_override.py` the same way as your own.
 
 ### How the image is built
 

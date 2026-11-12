@@ -1,7 +1,7 @@
 # Replaces Suvereo's pecl/settings_override.py inside the image.
-# Register your verticals, agents, integrations and entities here.
+# Register your domain definitions, agents, integrations and entities here.
 
-INSTALLED_VERTICALS = ["diet_advice_domain"]
+INSTALLED_DOMAIN_DEFINITIONS = ["diet_advice_domain"]
 
 AVAILABLE_AGENTS = [
     "diet_advice_domain.nutrition_agent.NutritionAssistantAgent",
