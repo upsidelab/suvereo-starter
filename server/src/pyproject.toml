@@ -7,6 +7,9 @@ authors = ["Suvereo User <user@example.com>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 requests = ">=2.31.0"
+suvereo_common = "^1.0.0"
+suvereo_agent_tools = "^1.0.0"
+suvereo_agent_tool_calling = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core"]
