@@ -15,7 +15,7 @@ services:
   redis:
     image: redis:latest
   frontend:
-    image: suvereo-frontend:${SUVEREO_VERSION:-latest}
+    image: upsidelab/suvereo-frontend:${SUVEREO_VERSION:-latest}
     env_file:
       - ./frontend/config/.env
     environment:
